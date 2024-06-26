@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrible CAPTCHA</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .captcha-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+        }
+        .equation {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="captcha-container">
+        <h1>Prove you're a human</h1>
+        <p>To proceed, please solve the following equation:</p>
+        <div class="equation">
+            \[
+            \int_{0}^{\pi} \left(\frac{\sin(x)}{\sqrt{1-\cos^2(x)}}\right)^3 dx = ?
+            \]
+        </div>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = parseFloat(document.getElementById('answer').value);
+            const message = document.getElementById('message');
+
+            if (!isNaN(answer) && Math.abs(answer - Math.PI) < 0.01) {
+                message.innerHTML = "Incredible! You've solved it correctly. You're either great at calculus or a very sophisticated AI.";
+                message.style.color = "green";
+            } else {
+                message.innerHTML = "Incorrect!";
+                message.style.color = "blue";
+            }
+        }
+
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    </script>
+</body>
+</html>
