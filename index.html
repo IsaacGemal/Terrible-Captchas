@@ -27,7 +27,7 @@
         h1 {
             color: #333;
         }
-        .equation, .question {
+        .equation, .question, .unicorn-captcha {
             font-size: 16px;
             margin: 20px 0;
             text-align: left;
@@ -64,6 +64,11 @@
         .message {
             margin-top: 20px;
             font-weight: bold;
+        }
+        .unicorn-captcha svg {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
         }
     </style>
 </head>
@@ -105,6 +110,25 @@ print(result)
         <div id="code-message" class="message"></div>
     </div>
 
+    <div class="captcha-container">
+        <h1>Prove you're an imaginary unicorn counter</h1>
+        <div class="unicorn-captcha">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+                <rect width="100%" height="100%" fill="#f8f8f8"/>
+                <text x="10" y="30" font-family="Comic Sans MS, cursive" font-size="14" fill="#333">Prove you're human: How many 🦄 can you spot?</text>
+                <text x="10" y="50" font-family="Comic Sans MS, cursive" font-size="10" fill="#666">(Hint: They're invisible and imaginary)</text>
+                <path d="M20,70 Q40,20 60,70 T100,70" stroke="pink" fill="none" stroke-width="2"/>
+                <path d="M120,70 Q140,120 160,70 T200,70" stroke="lightblue" fill="none" stroke-width="2"/>
+                <text x="220" y="75" font-family="Wingdings" font-size="24" fill="#999" transform="rotate(15,220,75)">✧✦✩✪✫✬✭</text>
+                <text x="10" y="120" font-family="Comic Sans MS, cursive" font-size="12" fill="#333">Now divide that number by π and</text>
+                <text x="10" y="140" font-family="Comic Sans MS, cursive" font-size="12" fill="#333">convert to binary. Enter result below:</text>
+            </svg>
+        </div>
+        <input type="text" id="unicorn-answer" placeholder="Enter your binary result">
+        <button onclick="checkUnicornAnswer()">Submit</button>
+        <div id="unicorn-message" class="message"></div>
+    </div>
+
     <script>
         function checkMathAnswer() {
             const answer = parseFloat(document.getElementById('math-answer').value);
@@ -128,6 +152,13 @@ print(result)
                 message.innerHTML = "Incorrect! Keep trying, human... or are you?";
                 message.style.color = "red";
             }
+        }
+
+        function checkUnicornAnswer() {
+            const answer = document.getElementById('unicorn-answer').value;
+            const message = document.getElementById('unicorn-message');
+            message.innerHTML = "Great job!";
+            message.style.color = "purple";
         }
 
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
