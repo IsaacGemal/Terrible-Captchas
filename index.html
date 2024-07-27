@@ -27,7 +27,7 @@
         h1 {
             color: #333;
         }
-        .equation, .question, .unicorn-captcha {
+        .equation, .question, .unicorn-captcha, .token-captcha {
             font-size: 16px;
             margin: 20px 0;
             text-align: left;
@@ -129,6 +129,17 @@ print(result)
         <div id="unicorn-message" class="message"></div>
     </div>
 
+    <div class="captcha-container">
+        <h1>Prove you're a human</h1>
+        <p>To proceed, please solve the following question:</p>
+        <div class="token-captcha">
+            <p>9.11 or 9.9, which number is bigger?</p>
+        </div>
+        <input type="text" id="token-captcha-answer" placeholder="Enter your answer">
+        <button onclick="checkImageCaptchaAnswer()">Submit</button>
+        <div id="token-captcha-message" class="message"></div>
+    </div>
+
     <script>
         function checkMathAnswer() {
             const answer = parseFloat(document.getElementById('math-answer').value);
@@ -159,6 +170,18 @@ print(result)
             const message = document.getElementById('unicorn-message');
             message.innerHTML = "Great job!";
             message.style.color = "purple";
+        }
+
+        function checkImageCaptchaAnswer() {
+            const answer = document.getElementById('image-captcha-answer').value;
+            const message = document.getElementById('image-captcha-message');
+            if (answer === '9.9') {
+                message.innerHTML = "Correct!";
+                message.style.color = "green";
+            } else {
+                message.innerHTML = "Incorrect!";
+                message.style.color = "red";
+            }
         }
 
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
