@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './Captcha.css'
 
 const UnicornCaptcha = () => {
     const [message, setMessage] = useState('');
@@ -10,10 +9,10 @@ const UnicornCaptcha = () => {
     };
 
     return (
-        <div className="captcha-container">
-            <h1>Prove you're an imaginary unicorn counter</h1>
-            <div className="unicorn-captcha">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+        <div className="max-w-2xl bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're an imaginary unicorn counter</h2>
+            <div className="bg-gray-50 p-4 rounded-md mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" className="w-full max-w-lg mx-auto">
                     <rect width="100%" height="100%" fill="#f8f8f8" />
                     <text x="10" y="30" fontFamily="Comic Sans MS, cursive" fontSize="14" fill="#333">
                         Prove you're human: How many 🦄 can you spot?
@@ -34,15 +33,21 @@ const UnicornCaptcha = () => {
                     </text>
                 </svg>
             </div>
-            <form onSubmit={checkUnicornAnswer}>
+            <form onSubmit={checkUnicornAnswer} className="space-y-4">
                 <input
                     type="text"
                     name="unicorn-answer"
                     placeholder="Enter your binary result"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button type="submit">Submit</button>
+                <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                >
+                    Submit
+                </button>
             </form>
-            <div className="message" style={{ color: 'purple' }}>{message}</div>
+            <div className="mt-4 font-semibold text-purple-600">{message}</div>
         </div>
     );
 };

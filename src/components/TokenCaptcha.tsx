@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './Captcha.css'
 
 const TokenCaptcha = () => {
     const [message, setMessage] = useState('');
@@ -12,29 +11,35 @@ const TokenCaptcha = () => {
 
         if (answer === '9.9') {
             setMessage("Correct!");
-            setMessageColor("green");
+            setMessageColor("text-green-600");
         } else {
             setMessage("Incorrect!");
-            setMessageColor("red");
+            setMessageColor("text-red-600");
         }
     };
 
     return (
-        <div className="captcha-container">
-            <h1>Prove you're a human</h1>
-            <p>To proceed, please solve the following question:</p>
-            <div className="token-captcha">
-                <p>9.11 or 9.9, which number is bigger?</p>
+        <div className="max-w-md bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're a human</h2>
+            <p className="text-sm text-gray-600 mb-4">To proceed, please solve the following question:</p>
+            <div className="bg-gray-50 p-4 rounded-md mb-4">
+                <p className="text-sm">9.11 or 9.9, which number is bigger?</p>
             </div>
-            <form onSubmit={checkAnswer}>
+            <form onSubmit={checkAnswer} className="space-y-4">
                 <input
                     type="text"
                     name="token-answer"
                     placeholder="Enter your answer"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <button type="submit">Submit</button>
+                <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                >
+                    Submit
+                </button>
             </form>
-            <div className="message" style={{ color: messageColor }}>{message}</div>
+            <div className={`mt-4 font-semibold ${messageColor}`}>{message}</div>
         </div>
     );
 };
