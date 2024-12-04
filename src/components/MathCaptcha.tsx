@@ -12,7 +12,7 @@ const MathCaptcha = () => {
         const answer = parseFloat(formData.get('math-answer') as string);
 
         if (!isNaN(answer) && Math.abs(answer - Math.PI) < 0.01) {
-            setMessage("Incredible! You've solved it correctly. You either paid attention in calculus or you're a sophisticated AI.");
+            setMessage("Nice! You've solved it correctly. You either paid attention in calculus or you're a sophisticated AI.");
             setMessageColor("text-green-600");
         } else {
             setMessage("Incorrect!");
@@ -21,10 +21,10 @@ const MathCaptcha = () => {
     };
 
     return (
-        <div className="max-w-md bg-white rounded-lg shadow-md p-6">
+        <div className="w-full max-w-md bg-white rounded-lg shadow-md p-4 sm:p-6">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're a human</h2>
             <p className="text-sm text-gray-600 mb-4">To proceed, please solve the following equation:</p>
-            <div className="bg-gray-50 p-4 rounded-md mb-4 overflow-x-auto">
+            <div className="bg-gray-50 p-2 sm:p-4 rounded-md mb-4 overflow-x-auto scale-75 sm:scale-100">
                 <BlockMath>
                     {`\\int_{0}^{\\pi} \\left(\\frac{\\sin(x)}{\\sqrt{1-\\cos^2(x)}}\\right)^3 dx = ?`}
                 </BlockMath>

@@ -19,11 +19,11 @@ const ProgrammerCaptcha = () => {
     };
 
     return (
-        <div className="max-w-2xl bg-white rounded-lg shadow-md p-6">
+        <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-4 sm:p-6">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're a programmer</h2>
             <p className="text-sm text-gray-600 mb-4">To proceed, please solve the following programming puzzle:</p>
-            <div className="bg-gray-50 p-4 rounded-md mb-4 overflow-x-auto">
-                <pre className="text-sm">
+            <div className="bg-gray-50 p-2 sm:p-4 rounded-md mb-4 overflow-x-auto">
+                <pre className="text-xs sm:text-sm whitespace-pre-wrap">
                     <code className="language-python">
                         {`def mystery(func):
     def wrapper(*args, **kwargs):

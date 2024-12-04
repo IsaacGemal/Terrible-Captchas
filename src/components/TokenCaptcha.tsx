@@ -19,7 +19,7 @@ const TokenCaptcha = () => {
     };
 
     return (
-        <div className="max-w-md bg-white rounded-lg shadow-md p-6">
+        <div className="w-full max-w-md bg-white rounded-lg shadow-md p-4 sm:p-6">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're a human</h2>
             <p className="text-sm text-gray-600 mb-4">To proceed, please solve the following question:</p>
             <div className="bg-gray-50 p-4 rounded-md mb-4">

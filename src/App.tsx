@@ -5,7 +5,7 @@ import TokenCaptcha from './components/TokenCaptcha'
 
 function App() {
   return (
-    <div className="flex flex-col items-center py-8 gap-8">
+    <div className="flex flex-col items-center px-4 py-8 gap-8">
       <MathCaptcha />
       <ProgrammerCaptcha />
       <UnicornCaptcha />

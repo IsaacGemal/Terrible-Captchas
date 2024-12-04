@@ -9,10 +9,10 @@ const UnicornCaptcha = () => {
     };
 
     return (
-        <div className="max-w-2xl bg-white rounded-lg shadow-md p-6">
+        <div className="w-full max-w-2xl bg-white rounded-lg shadow-md p-4 sm:p-6">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Prove you're an imaginary unicorn counter</h2>
             <div className="bg-gray-50 p-4 rounded-md mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" className="w-full max-w-lg mx-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" className="w-full h-auto max-w-lg mx-auto scale-90 sm:scale-100">
                     <rect width="100%" height="100%" fill="#f8f8f8" />
                     <text x="10" y="30" fontFamily="Comic Sans MS, cursive" fontSize="14" fill="#333">
                         Prove you're human: How many 🦄 can you spot?
